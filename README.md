@@ -1,11 +1,14 @@
 Temperament Synthesiser (平均律合成器)
 ===
 
-Have you doubted why there are 12 semitones in an octave? Can it be another number? This plugin gives you the chance to explore the world of different temperament and can help you find a good temperament by using the continous fraction.
+Github: https://github.com/timcsy/Temperament
+[中文說明](docs/Chinese.md)
+
+Have you doubted why there are 12 semitones in an octave? Can it be another number? This plugin gives you the chance to explore the world of different temperament and can help you find a good temperament by using the continued fraction.
 
 By the way, many folk songs are not using 12 temperament, so this tool can be useful if you want to play the music of different culture. (e.g. Chinese Pentatonic Scales)
 
-If you wonder how to calculate the temperament and why the 12 temperament is great and the relationship between continous fraction and temperament, you can see the references:
+If you wonder how to calculate the temperament and why the 12 temperament is great and the relationship between continued fraction and temperament, you can see the references:
 
 1. [音階裡的數學（一）：音階裡的生成元 (PDF)](http://mathcenter.ck.tp.edu.tw/Resources/Ctrl/ePaper/ePaperOpenFileX.ashx?autoKey=1007)
 2. [音階裡的數學（二）：一個八度內應該有幾個音？ (PDF)](http://mathcenter.ck.tp.edu.tw/Resources/Ctrl/ePaper/ePaperOpenFileX.ashx?autoKey=1008)
@@ -23,7 +26,7 @@ Parameters:
 - Center Note: The note as the origin (Default is A4=69, you can also use C4=60).
 - Center Frequency: The frequency of the center note (Default is A4=440Hz, you can alse use C4=261.626, or see the reference: http://www.inspiredacoustics.com/en/MIDI_note_numbers_and_center_frequencies).
 - Overtune1&2: The two overtune you want to use as the standard.
-- Precision: The precision of the continous fraction number when calculating note numbers.
+- Precision: The precision of the continued fraction number when calculating note numbers.
 - Temperament: The number of notes you want to devide between the interval of the two overtune. It can be calculated, or you can set it up manually.
 
 Developing
