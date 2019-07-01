@@ -3,7 +3,7 @@ Temperament Synthesiser (平均律合成器)
 
 Github: https://github.com/timcsy/Temperament
 
-[中文說明](docs/Chinese.md)
+[中文說明](README_Chinese.md)
 
 Have you doubted why there are 12 semitones in an octave? Can it be another number? This plugin gives you the chance to explore the world of different temperament and can help you find a good temperament by using the continued fraction.
 
@@ -25,7 +25,7 @@ Put the plugin (AU or VST3) inside the plugins/ folder to the right place of you
 
 Parameters:
 - Center Note: The note as the origin (Default is A4=69, you can also use C4=60).
-- Center Frequency: The frequency of the center note (Default is A4=440Hz, you can alse use C4=261.626, or see the reference: http://www.inspiredacoustics.com/en/MIDI_note_numbers_and_center_frequencies).
+- Center Frequency: The frequency of the center note (Default is A4=440Hz, you can alse use C4=261.63Hz, or see the reference: http://www.inspiredacoustics.com/en/MIDI_note_numbers_and_center_frequencies).
 - Overtune1&2: The two overtune you want to use as the standard.
 - Precision: The precision of the continued fraction number when calculating note numbers.
 - Temperament: The number of notes you want to devide between the interval of the two overtune. It can be calculated, or you can set it up manually.

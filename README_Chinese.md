@@ -3,7 +3,7 @@
 
 Github: https://github.com/timcsy/Temperament
 
-[English Version](../README.md)
+[English Version](README.md)
 
 你有曾經想過為何八度音中間是12個半音嗎？它可以是其他數字嗎？這個外掛可以讓你探索不同平均律的世界，也可以藉由連分數的計算來得到一組好聽的平均律。
 
@@ -17,7 +17,7 @@ Github: https://github.com/timcsy/Temperament
 4. [丟番圖逼近](https://zh.wikipedia.org/wiki/丟番圖逼近)
 5. [連分數](https://zh.wikipedia.org/wiki/連分數)
 
-![](../images/Temperament.png)
+![](images/Temperament.png)
 
 使用說明
 ---
@@ -25,9 +25,9 @@ Github: https://github.com/timcsy/Temperament
 
 參數說明:
 - Center Note: 中央基準音符（預設值是 A4=69，你也可以用 C4=60）。
-- Center Frequency: 中央基準音符的頻率（預設值是 A4=440Hz，你也可以用 C4=261.626，或是參考這個網站：http://www.inspiredacoustics.com/en/MIDI_note_numbers_and_center_frequencies）。
+- Center Frequency: 中央基準音符的頻率（預設值是 A4=440Hz，你也可以用 C4=261.63Hz，或是參考這個網站：http://www.inspiredacoustics.com/en/MIDI_note_numbers_and_center_frequencies）。
 - Overtune1&2: 兩個不同的泛音，產生出來的平均律在這兩泛音的音程聽起來最接近和諧。
-- Precision: 用連分數計算填充音符數目時所使用的精度T。
+- Precision: 用連分數計算填充音符數目時所使用的精度。
 - Temperament: 你想要在兩個泛音構成的音程中所切的等分。它可以自動被計算（如果改變泛音或是精度），也可以手動設置。
 
 開發
