@@ -2,6 +2,7 @@ Temperament Synthesiser (平均律合成器)
 ===
 
 Github: https://github.com/timcsy/Temperament
+
 [中文說明](docs/Chinese.md)
 
 Have you doubted why there are 12 semitones in an octave? Can it be another number? This plugin gives you the chance to explore the world of different temperament and can help you find a good temperament by using the continued fraction.
@@ -38,7 +39,7 @@ To start the project, create an Audio Plugin with JUCE, then
 1. Select "VST3", "AU" as Plugin Formats
 2. Select "Plugin is a Synth", "Plugin MIDI Input" in Plugin Characteristics
 
-If you have any questions with JUCE, you can visit https://juce.com/, or see my notes: https://hackmd.io/@timcsy/JUCE
+If you have any questions with JUCE, you can visit [Official Website](https://juce.com/), or see my notes: https://hackmd.io/@timcsy/JUCE
 
 After that, open your IDE to edit the code, enjoy!
 

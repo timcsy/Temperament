@@ -2,6 +2,7 @@
 ===
 
 Github: https://github.com/timcsy/Temperament
+
 [English Version](../README.md)
 
 你有曾經想過為何八度音中間是12個半音嗎？它可以是其他數字嗎？這個外掛可以讓你探索不同平均律的世界，也可以藉由連分數的計算來得到一組好聽的平均律。
@@ -16,7 +17,7 @@ Github: https://github.com/timcsy/Temperament
 4. [丟番圖逼近](https://zh.wikipedia.org/wiki/丟番圖逼近)
 5. [連分數](https://zh.wikipedia.org/wiki/連分數)
 
-![](images/Temperament.png)
+![](../images/Temperament.png)
 
 使用說明
 ---
@@ -38,7 +39,7 @@ Github: https://github.com/timcsy/Temperament
 1. Plugin Formats 中勾選 "VST3" 及 "AU"
 2. Plugin Characteristics 中勾選 "Plugin is a Synth" 及 "Plugin MIDI Input"
 
-如果對於 JUCE 有任何疑問，可以參考官網：https://juce.com/，或是看我整理的筆記：https://hackmd.io/@timcsy/JUCE
+如果對於 JUCE 有任何疑問，可以參考[官網](https://juce.com/)，或是看我整理的筆記：https://hackmd.io/@timcsy/JUCE
 
 之後，打開IDE開始進行編輯，享受吧！
 
