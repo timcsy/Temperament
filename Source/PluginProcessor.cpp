@@ -10,8 +10,6 @@
 
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
-#include "SynthVoice.h"
-#include "SynthSound.h"
 
 #define MAX_VOICES 16
 
@@ -27,14 +25,23 @@ TemperamentAudioProcessor::TemperamentAudioProcessor() :
                      #endif
                        ),
 #endif
+    synth(config),
     parameters(*this, nullptr, Identifier("Temperament"), {
-        std::make_unique<AudioParameterFloat> ("centerNote", "Center Note", NormalisableRange<float>(0, 127, 1), 69),
         std::make_unique<AudioParameterFloat> ("centerFreq", "Center Frequency", NormalisableRange<float>(0, 22000, 0.01, 0.2), 440),
-        std::make_unique<AudioParameterFloat> ("overtune1", "Overtune 1", NormalisableRange<float>(2, 128, 1, 0.3), 2),
-        std::make_unique<AudioParameterFloat> ("overtune2", "Overtune 2", NormalisableRange<float>(2, 128, 1, 0.3), 3),
+        std::make_unique<AudioParameterFloat> ("tempMode", "Temperament Mode", NormalisableRange<float> (1, 2, 1), Temperament::EQUAL_TEMP),
+        std::make_unique<AudioParameterFloat> ("centerNote", "Center Note", NormalisableRange<float>(0, 127, 1), 69),
+        std::make_unique<AudioParameterFloat> ("partition", "Partition", NormalisableRange<float>(1, 1000, 1, 0.3), 12),
+        std::make_unique<AudioParameterFloat> ("interval", "Interval", NormalisableRange<float>(0, 1000, 0.01, 0.3), 2),
+        std::make_unique<AudioParameterFloat> ("unit", "Scale Unit", NormalisableRange<float>(0, 1000, 0.001, 0.3), 1.5),
+        std::make_unique<AudioParameterBool> ("rational", "Use Rational", false),
+        std::make_unique<AudioParameterFloat> ("error", "Rational Error", NormalisableRange<float>(0, 10, 1e-6, 0.2), 0.1),
+        std::make_unique<AudioParameterFloat> ("mainOvertune", "Main Overtune", NormalisableRange<float>(2, 128, 1, 0.3), 2),
+        std::make_unique<AudioParameterFloat> ("refOvertune", "Reference Overtune", NormalisableRange<float>(2, 128, 1, 0.3), 3),
         std::make_unique<AudioParameterFloat> ("precision", "Precision", NormalisableRange<float>(1, 10, 1), 4),
-        std::make_unique<AudioParameterFloat> ("noteNum", "Temperament", NormalisableRange<float>(1, 1000, 1, 0.3), 12)
-    })
+        std::make_unique<AudioParameterFloat> ("timbre", "Timbre", NormalisableRange<float> (1, 2, 1), 1),
+        std::make_unique<AudioParameterFloat> ("decay", "Decay Factor", NormalisableRange<float> (0, 1, 1e-4, 100), 0.995)
+    }),
+    config()
 {
 }
 
@@ -155,7 +162,7 @@ bool TemperamentAudioProcessor::hasEditor() const
 
 AudioProcessorEditor* TemperamentAudioProcessor::createEditor()
 {
-    return new TemperamentAudioProcessorEditor (*this, parameters);
+    return new TemperamentAudioProcessorEditor (*this, parameters, config);
 }
 
 //==============================================================================

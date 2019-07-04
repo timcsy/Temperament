@@ -12,6 +12,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "PluginProcessor.h"
+#include "Temperament.h"
 
 //==============================================================================
 /**
@@ -19,7 +20,7 @@
 class TemperamentAudioProcessorEditor  : public AudioProcessorEditor
 {
 public:
-    TemperamentAudioProcessorEditor (TemperamentAudioProcessor& p, AudioProcessorValueTreeState&);
+    TemperamentAudioProcessorEditor (TemperamentAudioProcessor& p, AudioProcessorValueTreeState&, Temperament::Config&);
     ~TemperamentAudioProcessorEditor();
 
     //==============================================================================
@@ -31,27 +32,74 @@ private:
     // access the processor object that created it.
     TemperamentAudioProcessor& processor;
     AudioProcessorValueTreeState& valueTreeState;
-    double overtuneSmall = 2, overtuneBig = 3, precision = 4;
-    void updateIntervalNoteNum();
+    Temperament::Config& config;
+    void updateNote();
+    void updateIndex();
+    void updateParams();
+    void updateView();
+    void calFreq();
     
-    Slider centerNoteSlider;
-    Label centerNoteLabel;
-    std::unique_ptr<AudioProcessorValueTreeState::SliderAttachment> centerNoteAttachment;
     Slider centerFreqSlider;
     Label centerFreqLabel;
     std::unique_ptr<AudioProcessorValueTreeState::SliderAttachment> centerFreqAttachment;
-    Slider overtune1Slider;
-    Label overtune1Label;
-    std::unique_ptr<AudioProcessorValueTreeState::SliderAttachment> overtune1Attachment;
-    Slider overtune2Slider;
-    Label overtune2Label;
-    std::unique_ptr<AudioProcessorValueTreeState::SliderAttachment> overtune2Attachment;
+    Slider midiNoteSlider;
+    Label midiNoteLabel;
+    std::unique_ptr<AudioProcessorValueTreeState::SliderAttachment> midiNoteAttachment;
+    Slider noteFreqSlider;
+    Label noteFreqLabel;
+    std::unique_ptr<AudioProcessorValueTreeState::SliderAttachment> noteFreqAttachment;
+    Slider indexScaleSlider;
+    Label indexScaleLabel;
+    std::unique_ptr<AudioProcessorValueTreeState::SliderAttachment> indexScaleAttachment;
+    Slider tempIndexSlider;
+    Label tempIndexLabel;
+    std::unique_ptr<AudioProcessorValueTreeState::SliderAttachment> tempIndexAttachment;
+    
+    
+    ComboBox tempModeMenu;
+    Label tempModeLabel;
+    std::unique_ptr<AudioProcessorValueTreeState::ComboBoxAttachment> tempModeMenuAttachment;
+    Slider centerNoteSlider;
+    Label centerNoteLabel;
+    std::unique_ptr<AudioProcessorValueTreeState::SliderAttachment> centerNoteAttachment;
+    Slider partitionSlider;
+    Label partitionLabel;
+    std::unique_ptr<AudioProcessorValueTreeState::SliderAttachment> partitionAttachment;
+    Slider intervalSlider;
+    Label intervalLabel;
+    std::unique_ptr<AudioProcessorValueTreeState::SliderAttachment> intervalAttachment;
+    Slider unitSlider;
+    Label unitLabel;
+    std::unique_ptr<AudioProcessorValueTreeState::SliderAttachment> unitAttachment;
+    
+    ToggleButton rationalButton;
+    std::unique_ptr<AudioProcessorValueTreeState::ButtonAttachment> rationalAttachment;
+    Slider errorSlider;
+    Label errorLabel;
+    std::unique_ptr<AudioProcessorValueTreeState::SliderAttachment> errorAttachment;
+    
+    TextButton importButton;
+    TextButton exportButton;
+    
+    Slider mainOvertuneSlider;
+    Label mainOvertuneLabel;
+    std::unique_ptr<AudioProcessorValueTreeState::SliderAttachment> mainOvertuneAttachment;
+    Slider refOvertuneSlider;
+    Label refOvertuneLabel;
+    std::unique_ptr<AudioProcessorValueTreeState::SliderAttachment> refOvertuneAttachment;
     Slider precisionSlider;
     Label precisionLabel;
     std::unique_ptr<AudioProcessorValueTreeState::SliderAttachment> precisionAttachment;
-    Slider noteNumSlider;
-    Label noteNumLabel;
-    std::unique_ptr<AudioProcessorValueTreeState::SliderAttachment> noteNumAttachment;
+    
+    Label infoLabel;
+    
+    ComboBox timbreMenu;
+    Label timbreLabel;
+    std::unique_ptr<AudioProcessorValueTreeState::ComboBoxAttachment> timbreAttachment;
+    
+    Slider decaySlider;
+    Label decayLabel;
+    std::unique_ptr<AudioProcessorValueTreeState::SliderAttachment> decayAttachment;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (TemperamentAudioProcessorEditor)
 };

@@ -17,31 +17,26 @@
 
 class Synth: public Synthesiser {
 public:
-    Synth() {
+    Synth(Temperament::Config& config) : config(config) {
         // init synth
         for (int i = 0; i < MAX_VOICES; i++) {
-            addVoice(new SynthVoice());
+            addVoice(new SynthVoice(config));
         }
         addSound(new SynthSound());
     }
-    void setCenterNote(int note) {
+    
+    void setTimbre(int timbre) {
         for (int i = 0; i < voices.size(); i++) {
-            dynamic_cast<SynthVoice*>(voices[i])->setCenterNote(note);
+            dynamic_cast<SynthVoice*>(voices[i])->setTimbre(timbre);
         }
     }
-    void setCenterFreq(int freq) {
+    
+    void setDecay(double decay) {
         for (int i = 0; i < voices.size(); i++) {
-             dynamic_cast<SynthVoice*>(voices[i])->setCenterFreq(freq);
+            dynamic_cast<SynthVoice*>(voices[i])->setDecay(decay);
         }
     }
-    void setInterval(int interv) {
-        for (int i = 0; i < voices.size(); i++) {
-            dynamic_cast<SynthVoice*>(voices[i])->setInterval(interv);
-        }
-    }
-    void setNoteNum(int num) {
-        for (int i = 0; i < voices.size(); i++) {
-             dynamic_cast<SynthVoice*>(voices[i])->setNoteNum(num);
-        }
-    }
+    
+private:
+    Temperament::Config& config;
 };

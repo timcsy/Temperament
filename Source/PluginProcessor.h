@@ -62,6 +62,7 @@ public:
 private:
     //==============================================================================
     AudioProcessorValueTreeState parameters;
+    Temperament::Config config;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (TemperamentAudioProcessor)
 };
